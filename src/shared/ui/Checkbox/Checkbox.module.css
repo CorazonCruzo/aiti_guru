@@ -1,0 +1,45 @@
+.wrapper {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    cursor: pointer;
+    user-select: none;
+}
+
+.input {
+    position: absolute;
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+.checkmark {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 20px;
+    height: 20px;
+    border: 1.5px solid var(--color-border);
+    border-radius: 4px;
+    flex-shrink: 0;
+    transition: background-color 0.2s, border-color 0.2s;
+}
+
+.checkIcon {
+    display: none;
+    color: var(--color-text-white);
+}
+
+.input:checked + .checkmark {
+    background-color: var(--color-primary);
+    border-color: var(--color-primary);
+}
+
+.input:checked + .checkmark .checkIcon {
+    display: block;
+}
+
+.label {
+    font-size: var(--font-size-body);
+    color: var(--color-text);
+}
