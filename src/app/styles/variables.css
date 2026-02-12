@@ -1,0 +1,60 @@
+:root {
+    /* ===== Colors ===== */
+
+    /* Primary */
+    --color-primary: #242edb;
+    --color-primary-border: #367aff;
+    --color-primary-light: #797fea; /* pagination active */
+
+    /* Error */
+    --color-error: #f11010;
+
+    /* Text */
+    --color-text: #232323;
+    --color-text-black: #000000;
+    --color-text-white: #ffffff;
+    --color-text-gray: #b2b3b9; /* Gray 3: table headers, category */
+    --color-text-placeholder: #e0e0e0;
+    --color-text-subtitle: #e0e0e0;
+    --color-text-divider: #ebebeb;
+
+    /* Backgrounds */
+    --color-bg: #f6f6f6;
+    --color-bg-white: #ffffff;
+
+    /* Borders */
+    --color-border: #e0e0e0;
+    --color-border-card: #ededed;
+    --color-border-divider: #ededed;
+    --color-border-table: #c4c4c4;
+
+    /* ===== Typography ===== */
+
+    /* Login page */
+    --font-login: "Inter", sans-serif;
+    /* Products page */
+    --font-products: "Open Sans", sans-serif;
+
+    /* ===== Sizes ===== */
+
+    /* Border radius */
+    --radius-card: 40px;
+    --radius-card-inner: 34px;
+    --radius-input: 12px;
+    --radius-button: 12px;
+
+    /* Heights */
+    --height-input: 54px;
+    --height-button: 54px;
+
+    /* Font sizes */
+    --font-size-title: 40px; /* "Добро пожаловать!" */
+    --font-size-input: 18px;
+    --font-size-label: 18px;
+    --font-size-body: 16px; /* table text */
+
+    /* ===== Shadows ===== */
+
+    /* Material 3 Design Kit - Level 1 */
+    --shadow-card: 0 1px 4px 0 rgba(0, 0, 0, 0.37);
+}
