@@ -1,4 +1,5 @@
-import { useState, useCallback } from "react";
+import { useState, useCallback, useMemo } from "react";
+import { useSearchParams } from "react-router";
 import { useQuery, useQueryClient } from "@tanstack/react-query";
 import type { SortingState } from "@tanstack/react-table";
 import { ArrowsClockwiseIcon, PlusCircleIcon } from "@phosphor-icons/react";
@@ -18,14 +19,19 @@ const PRODUCTS_LIMIT = 20;
 
 export const ProductsPage = () => {
     const queryClient = useQueryClient();
+    const [searchParams, setSearchParams] = useSearchParams();
     const [page, setPage] = useState(1);
     const [search, setSearch] = useState("");
-    const [sorting, setSorting] = useState<SortingState>([]);
     const [addModalOpen, setAddModalOpen] = useState(false);
     const [localProducts, setLocalProducts] = useState<Product[]>([]);
 
-    const sortBy = sorting[0]?.id ?? undefined;
-    const order = sorting[0] ? (sorting[0].desc ? "desc" : "asc") : undefined;
+    const sortBy = searchParams.get("sortBy") ?? undefined;
+    const order = searchParams.get("order") ?? undefined;
+
+    const sorting: SortingState = useMemo(
+        () => (sortBy ? [{ id: sortBy, desc: order === "desc" }] : []),
+        [sortBy, order],
+    );
     const skip = (page - 1) * PRODUCTS_LIMIT;
 
     const { data, isLoading } = useQuery({
@@ -66,7 +72,17 @@ export const ProductsPage = () => {
     };
 
     const handleSortingChange = (updater: SortingState | ((old: SortingState) => SortingState)) => {
-        setSorting(updater);
+        const next = typeof updater === "function" ? updater(sorting) : updater;
+        setSearchParams((prev) => {
+            if (next.length > 0) {
+                prev.set("sortBy", next[0].id);
+                prev.set("order", next[0].desc ? "desc" : "asc");
+            } else {
+                prev.delete("sortBy");
+                prev.delete("order");
+            }
+            return prev;
+        });
         setPage(1);
     };
 
