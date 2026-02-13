@@ -26,7 +26,7 @@ export const ProductsPage = () => {
     const [localProducts, setLocalProducts] = useState<Product[]>([]);
 
     const sortBy = searchParams.get("sortBy") ?? undefined;
-    const order = searchParams.get("order") ?? undefined;
+    const order = (searchParams.get("order") as "asc" | "desc") ?? undefined;
 
     const sorting: SortingState = useMemo(
         () => (sortBy ? [{ id: sortBy, desc: order === "desc" }] : []),
