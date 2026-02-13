@@ -4,6 +4,17 @@
     gap: 16px;
 }
 
+.field {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.label {
+    font-size: var(--font-size-body);
+    color: var(--color-text-black);
+}
+
 .options {
     display: flex;
     align-items: center;

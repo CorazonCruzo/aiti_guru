@@ -2,7 +2,7 @@ import { useState } from "react";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { z } from "zod";
-import { User, Lock } from "@phosphor-icons/react";
+import { UserIcon, LockSimpleIcon } from "@phosphor-icons/react";
 
 import { useAuthStore } from "@/features/auth/model/authStore";
 import { Input } from "@/shared/ui/Input/Input";
@@ -55,28 +55,32 @@ export const LoginForm = () => {
 
     return (
         <form className={styles.form} onSubmit={handleSubmit(onSubmit)}>
-            <Input
-                {...register("username")}
-                leftIcon={<User size={20} weight="fill" />}
-                placeholder="Имя пользователя"
-                value={usernameValue}
-                onClear={() => setValue("username", "")}
-                error={errors.username?.message}
-                autoComplete="username"
-            />
+            <div className={styles.field}>
+                <label className={styles.label}>Логин</label>
+                <Input
+                    {...register("username")}
+                    leftIcon={<UserIcon size={20} />}
+                    value={usernameValue}
+                    onClear={() => setValue("username", "")}
+                    error={errors.username?.message}
+                    autoComplete="username"
+                />
+            </div>
 
-            <Input
-                {...register("password")}
-                leftIcon={<Lock size={20} weight="fill" />}
-                placeholder="Пароль"
-                value={passwordValue}
-                showPasswordToggle
-                error={errors.password?.message}
-                autoComplete="current-password"
-            />
+            <div className={styles.field}>
+                <label className={styles.label}>Пароль</label>
+                <Input
+                    {...register("password")}
+                    leftIcon={<LockSimpleIcon size={20} />}
+                    value={passwordValue}
+                    showPasswordToggle
+                    error={errors.password?.message}
+                    autoComplete="current-password"
+                />
+            </div>
 
             <div className={styles.options}>
-                <Checkbox {...register("rememberMe")} label="Запомнить меня" />
+                <Checkbox {...register("rememberMe")} label="Запомнить данные" />
             </div>
 
             <Button variant="primary" fullWidth type="submit" loading={isSubmitting}>
