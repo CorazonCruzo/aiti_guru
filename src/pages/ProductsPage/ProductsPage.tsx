@@ -1,5 +1,5 @@
 import { useState, useCallback } from "react";
-import { useQuery } from "@tanstack/react-query";
+import { useQuery, useQueryClient } from "@tanstack/react-query";
 import type { SortingState } from "@tanstack/react-table";
 import { ArrowsClockwiseIcon, PlusCircleIcon } from "@phosphor-icons/react";
 
@@ -7,6 +7,7 @@ import { getProducts, searchProducts } from "@/entities/product/api/productApi";
 import type { Product } from "@/entities/product/model/types";
 import { ProductsTable } from "@/features/products-table/ui/ProductsTable";
 import { ProductsSearch } from "@/features/products-search/ui/ProductsSearch";
+import { AddProductModal } from "@/features/add-product/ui/AddProductModal";
 import { Button } from "@/shared/ui/Button/Button";
 import { ProgressBar } from "@/shared/ui/ProgressBar/ProgressBar";
 import { Pagination } from "@/shared/ui/Pagination/Pagination";
@@ -16,9 +17,12 @@ import styles from "./ProductsPage.module.css";
 const PRODUCTS_LIMIT = 20;
 
 export const ProductsPage = () => {
+    const queryClient = useQueryClient();
     const [page, setPage] = useState(1);
     const [search, setSearch] = useState("");
     const [sorting, setSorting] = useState<SortingState>([]);
+    const [addModalOpen, setAddModalOpen] = useState(false);
+    const [localProducts, setLocalProducts] = useState<Product[]>([]);
 
     const sortBy = sorting[0]?.id ?? undefined;
     const order = sorting[0] ? (sorting[0].desc ? "desc" : "asc") : undefined;
@@ -34,8 +38,8 @@ export const ProductsPage = () => {
         },
     });
 
-    const products: Product[] = data?.products ?? [];
-    const total = data?.total ?? 0;
+    const products: Product[] = [...localProducts, ...(data?.products ?? [])];
+    const total = (data?.total ?? 0) + localProducts.length;
 
     const sortedProducts =
         search && sortBy
@@ -66,6 +70,14 @@ export const ProductsPage = () => {
         setPage(1);
     };
 
+    const handleRefresh = () => {
+        queryClient.invalidateQueries({ queryKey: ["products"] });
+    };
+
+    const handleProductAdded = (product: Product) => {
+        setLocalProducts((prev) => [product, ...prev]);
+    };
+
     return (
         <div className={styles.page}>
             <div className={styles.topCard}>
@@ -79,7 +91,7 @@ export const ProductsPage = () => {
                 <div className={styles.tableHeader}>
                     <h2 className={styles.subtitle}>Все позиции</h2>
                     <div className={styles.toolbar}>
-                        <Button variant="outline" shape="rect" size="s" iconOnly>
+                        <Button variant="outline" shape="rect" size="s" iconOnly onClick={handleRefresh}>
                             <ArrowsClockwiseIcon size={20} />
                         </Button>
                         <Button
@@ -87,6 +99,7 @@ export const ProductsPage = () => {
                             shape="rect"
                             size="s"
                             leftIcon={<PlusCircleIcon size={20} />}
+                            onClick={() => setAddModalOpen(true)}
                         >
                             Добавить
                         </Button>
@@ -108,6 +121,12 @@ export const ProductsPage = () => {
                     onChange={handlePageChange}
                 />
             </div>
+
+            <AddProductModal
+                open={addModalOpen}
+                onClose={() => setAddModalOpen(false)}
+                onSuccess={handleProductAdded}
+            />
         </div>
     );
 };

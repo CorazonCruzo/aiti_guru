@@ -1,5 +1,5 @@
 import { createColumnHelper } from "@tanstack/react-table";
-import { PlusIcon, DotsThreeIcon } from "@phosphor-icons/react";
+import { PlusIcon, DotsThreeIcon, PackageIcon } from "@phosphor-icons/react";
 
 import type { Product } from "@/entities/product/model/types";
 import { Button } from "@/shared/ui/Button/Button";
@@ -34,11 +34,17 @@ export const columns = [
         header: "Наименование",
         cell: ({ row }) => (
             <div className={styles.productCell}>
-                <img
-                    src={row.original.thumbnail}
-                    alt={row.original.title}
-                    className={styles.thumbnail}
-                />
+                {row.original.thumbnail ? (
+                    <img
+                        src={row.original.thumbnail}
+                        alt={row.original.title}
+                        className={styles.thumbnail}
+                    />
+                ) : (
+                    <span className={styles.thumbnailPlaceholder}>
+                        <PackageIcon size={24} />
+                    </span>
+                )}
                 <div>
                     <div className={styles.productTitle}>{row.original.title}</div>
                     <div className={styles.productCategory}>{row.original.category}</div>
@@ -60,6 +66,7 @@ export const columns = [
         header: "Оценка",
         cell: ({ getValue }) => {
             const rating = getValue();
+            if (!rating) return "—";
             return (
                 <span className={rating < 3 ? styles.ratingLow : undefined}>
                     {rating}/5
