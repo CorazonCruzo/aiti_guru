@@ -41,5 +41,5 @@
 
 .label {
     font-size: var(--font-size-body);
-    color: var(--color-text);
+    color: var(--color-text-placeholder);
 }

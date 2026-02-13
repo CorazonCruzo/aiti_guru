@@ -1,6 +1,6 @@
 import { forwardRef, useState, type InputHTMLAttributes, type ReactNode } from "react";
 import cn from "classnames";
-import { X, Eye, EyeSlash } from "@phosphor-icons/react";
+import { XIcon, EyeIcon, EyeSlashIcon } from "@phosphor-icons/react";
 
 import styles from "./Input.module.css";
 
@@ -38,7 +38,7 @@ export const Input = forwardRef<HTMLInputElement, InputProps>(
                             onClick={onClear}
                             tabIndex={-1}
                         >
-                            <X size={20} weight="fill" />
+                            <XIcon size={20} />
                         </button>
                     )}
 
@@ -49,7 +49,7 @@ export const Input = forwardRef<HTMLInputElement, InputProps>(
                             onClick={() => setPasswordVisible((v) => !v)}
                             tabIndex={-1}
                         >
-                            {passwordVisible ? <EyeSlash size={22} weight="fill" /> : <Eye size={22} weight="fill" />}
+                            {passwordVisible ? <EyeSlashIcon size={22} /> : <EyeIcon size={22} />}
                         </button>
                     )}
                 </div>
