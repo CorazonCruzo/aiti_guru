@@ -1,0 +1,28 @@
+.card {
+    width: 100%;
+    max-width: 527px;
+    padding: 48px 58px;
+    background: var(--color-bg-white);
+    border: 1px solid var(--color-border-card);
+    border-radius: var(--radius-card);
+    box-shadow: var(--shadow-card);
+}
+
+.logo {
+    display: block;
+    width: 72px;
+    margin: 0 auto;
+}
+
+.title {
+    font-size: var(--font-size-title);
+    font-weight: 600;
+    color: var(--color-text-black);
+    margin: 0 0 8px;
+}
+
+.subtitle {
+    font-size: var(--font-size-label);
+    color: var(--color-text-subtitle);
+    margin: 0 0 32px;
+}
