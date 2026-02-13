@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { z } from "zod";
@@ -9,6 +10,7 @@ import { Input } from "@/shared/ui/Input/Input";
 import { Button } from "@/shared/ui/Button/Button";
 import { Checkbox } from "@/shared/ui/Checkbox/Checkbox";
 import { showToast } from "@/shared/lib/showToast";
+import { ROUTES } from "@/shared/config/routes";
 
 import styles from "./LoginForm.module.css";
 
@@ -21,6 +23,7 @@ const loginSchema = z.object({
 type LoginFormValues = z.infer<typeof loginSchema>;
 
 export const LoginForm = () => {
+    const navigate = useNavigate();
     const login = useAuthStore((s) => s.login);
     const [isSubmitting, setIsSubmitting] = useState(false);
 
@@ -46,6 +49,7 @@ export const LoginForm = () => {
         setIsSubmitting(true);
         try {
             await login(data.username, data.password, data.rememberMe);
+            navigate(ROUTES.PRODUCTS, { replace: true });
         } catch {
             showToast("error", "Неверный логин или пароль");
         } finally {

@@ -5,18 +5,12 @@ import { AuthLayout } from "@/app/layouts/AuthLayout";
 import { MainLayout } from "@/app/layouts/MainLayout";
 import { LoginPage } from "@/pages/LoginPage/LoginPage";
 import { ProductsPage } from "@/pages/ProductsPage/ProductsPage";
-import { GuestGuard } from "./GuestGuard";
 import { PrivateGuard } from "./PrivateGuard";
 
 export const router = createBrowserRouter([
     {
-        element: <GuestGuard />,
-        children: [
-            {
-                element: <AuthLayout />,
-                children: [{ path: ROUTES.LOGIN, element: <LoginPage /> }],
-            },
-        ],
+        element: <AuthLayout />,
+        children: [{ path: ROUTES.LOGIN, element: <LoginPage /> }],
     },
     {
         element: <PrivateGuard />,
