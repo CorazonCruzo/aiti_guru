@@ -3,7 +3,7 @@
     align-items: center;
     justify-content: center;
     gap: 10px;
-    border: none;
+    border: 1px solid transparent;
     font-family: inherit;
     cursor: pointer;
     transition: opacity 0.2s;

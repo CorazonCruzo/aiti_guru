@@ -51,7 +51,11 @@ export const Button = ({
             ) : (
                 <>
                     {leftIcon && <span className={styles.icon}>{leftIcon}</span>}
-                    {children && <span className={styles.text}>{children}</span>}
+                    {children && (
+                        <span className={iconOnly ? styles.icon : styles.text}>
+                            {children}
+                        </span>
+                    )}
                 </>
             )}
         </button>
