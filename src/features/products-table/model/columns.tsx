@@ -49,6 +49,7 @@ export const columns = [
 
     columnHelper.accessor("brand", {
         header: "Вендор",
+        cell: ({ getValue }) => <span className={styles.brandText}>{getValue()}</span>,
     }),
 
     columnHelper.accessor("sku", {
@@ -68,19 +69,19 @@ export const columns = [
     }),
 
     columnHelper.accessor("price", {
-        header: "Цена",
-        cell: ({ getValue }) => `${formatPrice(getValue())} ₽`,
+        header: "Цена, ₽",
+        cell: ({ getValue }) => formatPrice(getValue()),
     }),
 
     columnHelper.display({
         id: "actions",
-        header: "Действия",
+        header: "",
         cell: () => (
             <div className={styles.actions}>
-                <Button variant="primary" shape="oval" iconOnly>
+                <Button variant="primary" shape="circle" size="s" iconOnly>
                     <PlusIcon size={18} />
                 </Button>
-                <Button variant="outline" shape="circle" iconOnly>
+                <Button variant="outline" shape="circle" size="s" iconOnly>
                     <DotsThreeIcon size={18} />
                 </Button>
             </div>

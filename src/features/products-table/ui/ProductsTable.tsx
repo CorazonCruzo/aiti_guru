@@ -45,15 +45,19 @@ export const ProductsTable = ({ data, sorting, onSortingChange }: ProductsTableP
                                 >
                                     {flexRender(header.column.columnDef.header, header.getContext())}
                                     {header.column.getCanSort() && (
-                                        <span className={styles.sortIcon}>
+                                        <span
+                                            className={cn(styles.sortIcon, {
+                                                [styles.sortActive]: header.column.getIsSorted(),
+                                            })}
+                                        >
                                             {header.column.getIsSorted() === "asc" && (
-                                                <ArrowUpIcon size={14} />
+                                                <ArrowUpIcon size={18} />
                                             )}
                                             {header.column.getIsSorted() === "desc" && (
-                                                <ArrowUpIcon size={14} className={styles.sortDesc} />
+                                                <ArrowUpIcon size={18} className={styles.sortDesc} />
                                             )}
                                             {!header.column.getIsSorted() && (
-                                                <ArrowsDownUpIcon size={14} />
+                                                <ArrowsDownUpIcon size={18} />
                                             )}
                                         </span>
                                     )}

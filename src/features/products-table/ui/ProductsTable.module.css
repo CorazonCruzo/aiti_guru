@@ -1,5 +1,6 @@
 .wrapper {
     overflow-x: auto;
+    margin-bottom: 50px;
 }
 
 .table {
@@ -10,8 +11,9 @@
 
 .th {
     text-align: left;
-    padding: 12px 16px;
-    font-weight: 600;
+    padding: 14px 16px;
+    font-weight: 700;
+    font-size: 14px;
     color: var(--color-text-gray);
     border-bottom: 1px solid var(--color-border-table);
     white-space: nowrap;
@@ -34,6 +36,10 @@
     vertical-align: middle;
 }
 
+.sortActive {
+    color: var(--color-text-black);
+}
+
 .sortDesc {
     transform: rotate(180deg);
 }
@@ -48,7 +54,7 @@
 }
 
 .td {
-    padding: 12px 16px;
+    padding: 18px 16px;
     vertical-align: middle;
 }
 
@@ -74,6 +80,10 @@
 .productCategory {
     font-size: 13px;
     color: var(--color-text-gray);
+}
+
+.brandText {
+    font-weight: 600;
 }
 
 .ratingLow {
