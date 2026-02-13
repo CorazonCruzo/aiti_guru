@@ -3,7 +3,7 @@
     align-items: center;
     justify-content: center;
     gap: 10px;
-    border: 1px solid transparent;
+    border: 2px solid transparent;
     font-family: inherit;
     cursor: pointer;
     transition: opacity 0.2s;
@@ -28,7 +28,7 @@
 .outline {
     background: transparent;
     color: var(--color-text);
-    border: 1px solid var(--color-border);
+    border: 2px solid var(--color-border);
 }
 
 .outline:hover:not(:disabled) {
@@ -41,7 +41,7 @@
 }
 
 .sizeM {
-    font-size: 16px;
+    font-size: 14px;
     font-weight: 600;
 }
 
@@ -50,43 +50,61 @@
     font-weight: 700;
 }
 
+.rect {
+    border-radius: 8px;
+}
+
 .rect.sizeS {
+    padding: 5px 16px;
     border-radius: 6px;
 }
 
 .rect.sizeM {
+    padding: 9px 20px;
     border-radius: 8px;
 }
 
 .rect.sizeL {
+    padding: 13px 24px;
     border-radius: 12px;
 }
 
-.rect {
-    padding: 14px 24px;
+.rect.iconOnly.sizeS {
+    padding: 5px;
+}
+
+.rect.iconOnly.sizeM {
+    padding: 9px;
+}
+
+.rect.iconOnly.sizeL {
+    padding: 13px;
 }
 
 .oval {
-    padding: 10px 24px;
     border-radius: 23px;
 }
 
+.oval.sizeS {
+    padding: 4px 16px;
+}
+
+.oval.iconOnly.sizeS {
+    padding: 3px 15px;
+}
+
 .circle {
-    padding: 10px;
     border-radius: 50%;
 }
 
-.rect.iconOnly {
-    padding: 14px;
+.circle.sizeS {
+    padding: 5px;
 }
 
-.oval.iconOnly {
-    padding: 10px 20px;
+.circle.sizeM {
+    padding: 9px;
 }
 
-.circle.iconOnly {
-    padding: 10px;
-}
 
 .fullWidth {
     width: 100%;

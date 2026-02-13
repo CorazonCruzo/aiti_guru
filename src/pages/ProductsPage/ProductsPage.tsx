@@ -107,13 +107,13 @@ export const ProductsPage = () => {
                 <div className={styles.tableHeader}>
                     <h2 className={styles.subtitle}>Все позиции</h2>
                     <div className={styles.toolbar}>
-                        <Button variant="outline" shape="rect" size="s" iconOnly onClick={handleRefresh}>
+                        <Button variant="outline" shape="rect" size="m" iconOnly onClick={handleRefresh}>
                             <ArrowsClockwiseIcon size={20} />
                         </Button>
                         <Button
                             variant="primary"
                             shape="rect"
-                            size="s"
+                            size="m"
                             leftIcon={<PlusCircleIcon size={20} />}
                             onClick={() => setAddModalOpen(true)}
                         >

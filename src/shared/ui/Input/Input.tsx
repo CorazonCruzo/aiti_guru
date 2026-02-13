@@ -53,7 +53,7 @@ export const Input = forwardRef<HTMLInputElement, InputProps>(
                             onClick={() => setPasswordVisible((v) => !v)}
                             tabIndex={-1}
                         >
-                            {passwordVisible ? <EyeSlashIcon size={22} /> : <EyeIcon size={22} />}
+                            {passwordVisible ? <EyeIcon size={22} /> : <EyeSlashIcon size={22} />}
                         </button>
                     )}
                 </div>

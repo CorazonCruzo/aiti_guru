@@ -85,7 +85,7 @@ export const columns = [
         header: "",
         cell: () => (
             <div className={styles.actions}>
-                <Button variant="primary" shape="circle" size="s" iconOnly>
+                <Button variant="primary" shape="oval" size="s" iconOnly>
                     <PlusIcon size={18} />
                 </Button>
                 <Button variant="outline" shape="circle" size="s" iconOnly>

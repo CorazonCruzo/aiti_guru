@@ -23,6 +23,40 @@
 
 .subtitle {
     font-size: var(--font-size-label);
-    color: var(--color-text-subtitle);
+    color: var(--color-text-gray);
+    text-align: center;
     margin: 0 0 32px;
+}
+
+.divider {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    margin: 24px 0;
+}
+
+.divider::before,
+.divider::after {
+    content: "";
+    flex: 1;
+    height: 1px;
+    background: var(--color-border-divider);
+}
+
+.dividerText {
+    font-size: var(--font-size-body);
+    color: var(--color-text-gray);
+}
+
+.signup {
+    text-align: center;
+    font-size: var(--font-size-body);
+    color: var(--color-text-black);
+    margin: 0;
+}
+
+.signupLink {
+    color: var(--color-primary);
+    text-decoration: underline;
+    font-weight: 600;
 }
