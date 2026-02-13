@@ -45,7 +45,7 @@ export const columns = [
                         <PackageIcon size={24} />
                     </span>
                 )}
-                <div>
+                <div className={styles.productInfo}>
                     <div className={styles.productTitle}>{row.original.title}</div>
                     <div className={styles.productCategory}>{row.original.category}</div>
                 </div>

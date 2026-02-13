@@ -6,6 +6,7 @@
 .table {
     width: 100%;
     border-collapse: collapse;
+    table-layout: fixed;
     font-size: var(--font-size-body);
 }
 
@@ -56,12 +57,16 @@
 .td {
     padding: 18px 16px;
     vertical-align: middle;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
 }
 
 .productCell {
     display: flex;
     align-items: center;
     gap: 12px;
+    min-width: 0;
 }
 
 .thumbnail {
@@ -84,14 +89,25 @@
     flex-shrink: 0;
 }
 
+.productInfo {
+    min-width: 0;
+    overflow: hidden;
+}
+
 .productTitle {
     font-weight: 600;
     color: var(--color-text);
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
 }
 
 .productCategory {
     font-size: 13px;
     color: var(--color-text-gray);
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
 }
 
 .brandText {

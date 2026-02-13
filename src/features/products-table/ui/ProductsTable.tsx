@@ -33,6 +33,15 @@ export const ProductsTable = ({ data, sorting, onSortingChange }: ProductsTableP
     return (
         <div className={styles.wrapper}>
             <table className={styles.table}>
+                <colgroup>
+                    <col style={{ width: "4%" }} />
+                    <col style={{ width: "30%" }} />
+                    <col style={{ width: "16%" }} />
+                    <col style={{ width: "14%" }} />
+                    <col style={{ width: "10%" }} />
+                    <col style={{ width: "12%" }} />
+                    <col style={{ width: "14%" }} />
+                </colgroup>
                 <thead>
                     {table.getHeaderGroups().map((headerGroup) => (
                         <tr key={headerGroup.id}>
