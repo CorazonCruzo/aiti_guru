@@ -1,6 +1,6 @@
 # Панель управления товарами
 
-[Демо](https://aitiguru-dcm32l0fx-anastasiya-chestnykhs-projects.vercel.app)
+[Демо](https://aitiguru.vercel.app/)
 
 ## Суть
 
