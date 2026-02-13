@@ -1,7 +1,6 @@
 .wrapper {
-    display: flex;
+    display: inline-flex;
     align-items: center;
-    gap: 8px;
     cursor: pointer;
     user-select: none;
 }
@@ -35,11 +34,21 @@
     border-color: var(--color-primary);
 }
 
+.table .input:checked + .checkmark {
+    background-color: var(--color-primary-table);
+    border-color: var(--color-primary-table);
+}
+
+.table .input:checked + .checkmark .checkIcon {
+    display: none;
+}
+
 .input:checked + .checkmark .checkIcon {
     display: block;
 }
 
 .label {
+    margin-left: 8px;
     font-size: var(--font-size-body);
     color: var(--color-text-placeholder);
 }

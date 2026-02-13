@@ -5,6 +5,7 @@
     --color-primary: #242edb;
     --color-primary-border: #367aff;
     --color-primary-light: #797fea; /* pagination active */
+    --color-primary-table: #3c538e; /* table checkbox, selected row */
 
     /* Error */
     --color-error: #f11010;

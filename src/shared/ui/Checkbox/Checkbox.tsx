@@ -6,12 +6,13 @@ import styles from "./Checkbox.module.css";
 
 interface CheckboxProps extends Omit<InputHTMLAttributes<HTMLInputElement>, "type"> {
     label?: string;
+    variant?: "default" | "table";
 }
 
 export const Checkbox = forwardRef<HTMLInputElement, CheckboxProps>(
-    ({ label, className, ...rest }, ref) => {
+    ({ label, variant = "default", className, ...rest }, ref) => {
         return (
-            <label className={cn(styles.wrapper, className)}>
+            <label className={cn(styles.wrapper, styles[variant], className)}>
                 <input ref={ref} type="checkbox" className={styles.input} {...rest} />
                 <span className={styles.checkmark}>
                     <CheckIcon size={14} className={styles.checkIcon} />
