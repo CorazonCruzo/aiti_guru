@@ -32,6 +32,10 @@
     cursor: pointer;
 }
 
+.arrow {
+    color: var(--color-text-gray);
+}
+
 .page:hover,
 .arrow:hover:not(:disabled) {
     background: var(--color-border);

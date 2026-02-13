@@ -1,4 +1,5 @@
 import cn from "classnames";
+import { CaretLeftIcon, CaretRightIcon } from "@phosphor-icons/react";
 
 import styles from "./Pagination.module.css";
 
@@ -49,7 +50,7 @@ export const Pagination = ({ page, total, limit, onChange }: PaginationProps) =>
                     disabled={page === 1}
                     onClick={() => onChange(page - 1)}
                 >
-                    &lt;
+                    <CaretLeftIcon size={20} />
                 </button>
                 {getPages().map((p, i) =>
                     p === "..." ? (
@@ -71,7 +72,7 @@ export const Pagination = ({ page, total, limit, onChange }: PaginationProps) =>
                     disabled={page === totalPages}
                     onClick={() => onChange(page + 1)}
                 >
-                    &gt;
+                    <CaretRightIcon size={20} />
                 </button>
             </div>
         </div>
