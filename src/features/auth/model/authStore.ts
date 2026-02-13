@@ -30,6 +30,7 @@ export const useAuthStore = create<AuthState>((set) => ({
     rememberMe: getRememberMe(),
 
     login: async (username, password, rememberMe) => {
+        clearTokens();
         setRememberMe(rememberMe);
         set({ rememberMe });
 
