@@ -5,24 +5,30 @@ import { AuthLayout } from "@/app/layouts/AuthLayout";
 import { MainLayout } from "@/app/layouts/MainLayout";
 import { LoginPage } from "@/pages/LoginPage/LoginPage";
 import { ProductsPage } from "@/pages/ProductsPage/ProductsPage";
+import { ErrorPage } from "@/pages/ErrorPage/ErrorPage";
 import { PrivateGuard } from "./PrivateGuard";
 
 export const router = createBrowserRouter([
     {
-        element: <AuthLayout />,
-        children: [{ path: ROUTES.LOGIN, element: <LoginPage /> }],
-    },
-    {
-        element: <PrivateGuard />,
+        errorElement: <ErrorPage />,
         children: [
             {
-                element: <MainLayout />,
-                children: [{ path: ROUTES.PRODUCTS, element: <ProductsPage /> }],
+                element: <AuthLayout />,
+                children: [{ path: ROUTES.LOGIN, element: <LoginPage /> }],
+            },
+            {
+                element: <PrivateGuard />,
+                children: [
+                    {
+                        element: <MainLayout />,
+                        children: [{ path: ROUTES.PRODUCTS, element: <ProductsPage /> }],
+                    },
+                ],
+            },
+            {
+                path: "*",
+                element: <Navigate to={ROUTES.PRODUCTS} replace />,
             },
         ],
-    },
-    {
-        path: "*",
-        element: <Navigate to={ROUTES.PRODUCTS} replace />,
     },
 ]);
