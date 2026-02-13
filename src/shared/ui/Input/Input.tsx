@@ -9,17 +9,21 @@ interface InputProps extends InputHTMLAttributes<HTMLInputElement> {
     error?: string;
     onClear?: () => void;
     showPasswordToggle?: boolean;
+    variant?: "default" | "compact";
 }
 
 export const Input = forwardRef<HTMLInputElement, InputProps>(
-    ({ leftIcon, error, onClear, showPasswordToggle, className, type, value, ...rest }, ref) => {
+    (
+        { leftIcon, error, onClear, showPasswordToggle, variant = "default", className, type, value, ...rest },
+        ref,
+    ) => {
         const [passwordVisible, setPasswordVisible] = useState(false);
 
         const inputType = showPasswordToggle ? (passwordVisible ? "text" : "password") : type;
         const hasValue = value !== undefined && value !== "";
 
         return (
-            <div className={cn(styles.wrapper, className)}>
+            <div className={cn(styles.wrapper, styles[variant], className)}>
                 <div className={cn(styles.field, { [styles.error]: !!error })}>
                     {leftIcon && <span className={styles.leftIcon}>{leftIcon}</span>}
 

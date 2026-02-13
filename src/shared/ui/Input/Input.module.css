@@ -60,6 +60,19 @@
     color: var(--color-text-gray);
 }
 
+.compact .field {
+    height: 40px;
+    border-radius: 8px;
+    padding: 0 12px;
+    gap: 8px;
+    background: var(--color-bg);
+    border-color: transparent;
+}
+
+.compact .input {
+    font-size: 14px;
+}
+
 .errorText {
     font-size: 13px;
     color: var(--color-error);
