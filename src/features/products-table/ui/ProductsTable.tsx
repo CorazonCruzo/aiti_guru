@@ -27,6 +27,7 @@ export const ProductsTable = ({ data, sorting, onSortingChange }: ProductsTableP
         state: { sorting },
         onSortingChange,
         manualSorting: true,
+        getRowId: (row) => String(row.id),
         getCoreRowModel: getCoreRowModel(),
     });
 
