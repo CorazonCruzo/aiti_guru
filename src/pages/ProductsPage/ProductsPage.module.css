@@ -1,18 +1,55 @@
 .page {
     display: flex;
     flex-direction: column;
-    gap: 24px;
+    gap: 16px;
 }
 
-.header {
+.topCard {
     display: flex;
     align-items: center;
-    justify-content: space-between;
+    justify-content: center;
+    position: relative;
+    background: var(--color-bg-white);
+    border-radius: 12px;
+    padding: 20px 32px;
 }
 
 .title {
-    font-size: var(--font-size-title);
-    font-weight: 600;
+    position: absolute;
+    left: 32px;
+    font-size: 24px;
+    font-weight: 700;
     color: var(--color-text-black);
     margin: 0;
+    white-space: nowrap;
+}
+
+.searchWrapper {
+    width: 50%;
+}
+
+.tableCard {
+    background: var(--color-bg-white);
+    border-radius: 12px;
+    padding: 24px 32px;
+}
+
+.tableHeader {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 20px;
+}
+
+.subtitle {
+    font-size: 22px;
+    font-weight: 700;
+    color: var(--color-text-black);
+    margin: 0;
+}
+
+.toolbar {
+    display: flex;
+    align-items: center;
+    gap: 12px;
 }
