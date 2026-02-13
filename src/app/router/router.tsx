@@ -2,7 +2,9 @@ import { createBrowserRouter, Navigate } from "react-router-dom";
 
 import { ROUTES } from "@/shared/config/routes";
 import { AuthLayout } from "@/app/layouts/AuthLayout";
+import { MainLayout } from "@/app/layouts/MainLayout";
 import { LoginPage } from "@/pages/LoginPage/LoginPage";
+import { ProductsPage } from "@/pages/ProductsPage/ProductsPage";
 import { GuestGuard } from "./GuestGuard";
 import { PrivateGuard } from "./PrivateGuard";
 
@@ -20,8 +22,8 @@ export const router = createBrowserRouter([
         element: <PrivateGuard />,
         children: [
             {
-                path: ROUTES.PRODUCTS,
-                element: <div>Products (TODO)</div>,
+                element: <MainLayout />,
+                children: [{ path: ROUTES.PRODUCTS, element: <ProductsPage /> }],
             },
         ],
     },
